@@ -1,0 +1,42 @@
+@import "base/base";
+
+body {
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.dashboard {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100vh;
+}
+
+.shape {
+    position: absolute;
+    height: 10rem;
+    width: 10rem;
+    background: rgb(255, 0, 64);
+    border-radius: 100%;
+
+    &--1 {
+        left: 15rem;
+        top: 2rem;
+        transform: rotate(30deg);
+        border-radius: 0;
+    }
+
+    &--2 {
+        left: 35rem;
+        top: 15rem;
+    }
+
+    &--3 {
+        left: 60rem;
+        top: 20rem;
+    }
+}

@@ -1,0 +1,54 @@
+.sidebar {
+    background: #212529;
+    color: #fff;
+
+    &_brand {
+        background: #000;
+        height: 10%;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-name {
+            font-weight: 900;
+            letter-spacing: .3vw;
+
+            .highlight {
+                color: #c70f61;
+            }
+        }
+    }
+
+    &_links {
+        &-item {
+            margin: 2rem auto 0;
+            width: 60%;
+
+            &:first-of-type {
+                .icon {
+                    color: #c70f61;
+                }
+            }
+
+            .link {
+                text-transform: uppercase;
+                display: flex;
+                gap: .7rem;
+                line-height: 1;
+
+                .icon {
+                    transition: .3s ease-in-out;
+                }
+
+                &:hover,
+                &:focus,
+                &.active {
+                    .icon {
+                        color: #c70f61;
+                    }
+                }
+            }
+        }
+    }
+}
