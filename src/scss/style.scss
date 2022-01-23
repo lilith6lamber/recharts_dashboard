@@ -40,3 +40,36 @@ body {
         top: 20rem;
     }
 }
+
+.link {
+    &--circle {
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #fff;
+            border-radius: 100%;
+            transition: opacity .4s ease-in-out;
+            opacity: 0;
+        }
+
+        &:hover, &:focus {
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0.3rem;
+    background: #14213d;
+    &-thumb {
+        background: #e63946;
+    }
+}

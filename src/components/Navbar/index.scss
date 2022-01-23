@@ -30,6 +30,7 @@
 
             &_status {
                 color: #80b918;
+                font-size: 12px;
             }
         }
     }
@@ -66,8 +67,16 @@
         gap: 1.4vw;
 
         &-item {
+            .link {
+                color: #fff;
+                &:hover, &:focus {
+                    color: #c70f61;
+                }
+            }
+
             &_form {
                 background: #fff;
+                color: #111;
                 display: flex;
                 align-items: center;
                 position: relative;

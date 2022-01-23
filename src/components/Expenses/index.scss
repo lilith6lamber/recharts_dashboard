@@ -1,0 +1,56 @@
+.expenses {
+    &_info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 2rem;
+    }
+
+    &_list {
+        display: flex;
+        justify-content: space-between;
+
+        &-item {
+            &_wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &:hover, &:focus {
+                    .media {
+                        transform: scale(1.1);
+                    }
+                }
+
+                .media {
+                    width: 60px;
+                    height: 60px;
+                    overflow: hidden;
+                    border-radius: 100%;
+                    margin-bottom: .5rem;
+                    transition: .4s ease-in-out;
+                }
+
+                .main {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+
+                    &_title {
+                        color: #fff;
+                        text-transform: capitalize;
+                        margin-bottom: .2rem;
+                        font-weight: 500;
+                    }
+
+                    &_total {
+                        color: #f94144;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+.activity {
+    color: #fff;
+    margin-top: 3rem;
+
+    &_info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    &_log {
+        margin-top: 1rem;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            height: 95%;
+            z-index: -1;
+            transform: translateY(-50%);
+            border-left: 3px dotted #fff;
+        }
+
+        &-item {
+            display: grid;
+            grid-template-columns: 0.8fr 0.3fr 2fr;
+            margin-bottom: 1.5rem;
+            font-size: 14px;
+
+            .timestamp {
+                &_weekday {
+                    color: #c70f61;
+                    font-weight: 500;
+                }
+            }
+
+            .dot {
+                height: 0.6rem;
+                width: 0.6rem;
+                background: #f94144;
+                border-radius: 1rem;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .details {
+                &_status {
+                    color: gainsboro;
+
+                    &.sent {
+                        color: darkgoldenrod;
+                    }
+
+                    &.processing {
+                        color: cornflowerblue;
+                    }
+
+                    &.paid {
+                        color: #80b918;
+                    }
+
+                    &.rejected {
+                        color: #f94144;
+                    }
+                }
+            }
+        }
+    }
+}

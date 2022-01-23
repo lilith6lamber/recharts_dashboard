@@ -1,7 +1,25 @@
 .app {
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
     background: rgba(6, 7, 15, .938);
     backdrop-filter: blur(8px);
     padding: 3rem 2rem;
+
+    &_grid {
+        display: grid;
+        grid-template-columns: 70% 25%;
+        gap: 2rem;
+        margin-top: 2rem;
+
+        &-block {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            &:first-of-type {
+                width: 100%;
+            }
+        }
+    }
 }

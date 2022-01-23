@@ -1,0 +1,106 @@
+.overview {
+    color: #fff;
+    height: 50%;
+    width: 100%;
+
+    &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+
+        &-triggers {
+            display: flex;
+            gap: 1rem;
+
+            &_btn {
+                border-radius: 30px;
+                padding: 5px 15px;
+                background: #fff;
+                color: #c70f61;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 14px;
+
+                &:nth-of-type(2) {
+                    background: #f94144;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &_info {
+        display: flex;
+        flex-direction: column;
+
+        .block, &-inner {
+            display: flex;
+        }
+
+        .block:not(:last-of-type) {
+            margin-bottom: .3rem;
+        }
+
+        &-inner {
+            gap: 1rem;
+        }
+
+        &-outer {
+            width: 35%;
+        }
+    }
+
+    &_visualizer {
+        height: 30%;
+        margin: 2rem 0 3rem;
+    }
+
+    &_insights {
+        display: flex;
+
+        &-item {
+            width: 30%;
+
+            .title {
+                margin-bottom: .3rem;
+                font-size: 18px;
+            }
+
+            .main {
+                display: flex;
+                &_total {
+                    margin-right: 5px;
+                    font-weight: 700;
+                    color: #f94144;
+                }
+            }
+
+            &:nth-of-type(2) {
+                .main_total {
+                    color: #80b918;
+                }
+            }
+        }
+    }
+
+    &_expand {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+
+        &-btn {
+            border-radius: 2rem;
+            padding: 0.8rem 4rem;
+            background: #ff4d6d;
+            border: 2px solid #ff4d6d;
+            font-weight: 500;
+
+            &:hover {
+                background: transparent;
+                color: #ff4d6d;
+                filter: drop-shadow(0 0 0.3rem #ff4d6d);
+            }
+        }
+    }
+}
