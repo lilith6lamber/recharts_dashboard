@@ -3,12 +3,10 @@ import {useLayoutEffect, useState, useEffect} from "react";
 import Wallet from "../Wallet";
 
 import './index.scss';
-
 import {BsThreeDots} from "react-icons/bs";
-
 import wallet1 from '../../assets/wallet1.png';
 import wallet2 from '../../assets/wallet2.png';
-import data from "bootstrap/js/src/dom/data";
+
 
 export default function Wallets() {
     const [walletsData, setData] = useState([

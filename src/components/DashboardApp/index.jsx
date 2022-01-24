@@ -5,6 +5,7 @@ import Expenses from "../Expenses";
 import Transactions from "../Transactions";
 import Overview from "../Overview";
 import ActivityLog from "../ActivityLog";
+import Calculator from "../Calculator";
 
 export default function DashboardApp() {
     return (
@@ -13,6 +14,7 @@ export default function DashboardApp() {
             <div className="app_grid">
                 <div className="app_grid-block">
                     <Wallets />
+                    <Calculator />
                     <Expenses />
                     <Transactions />
                 </div>
