@@ -1,0 +1,28 @@
+.converter {
+    color: #fff;
+    background: rgba(54, 54, 54, 0.473);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    min-height: 15em;
+    width: calc(50% - 1rem);
+
+    &_header {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+
+    &_form {
+        &-main {
+            margin-bottom: 1.5rem;
+
+            .field {
+                border: 2px solid gainsboro;
+                padding: 0.5rem;
+
+                &::placeholder {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
