@@ -1,6 +1,7 @@
 import './index.scss';
 import {SiConvertio} from "react-icons/si";
 import {Component} from "react";
+import {StyledSelect} from "../Select";
 
 const apibase = 'https://api.coingecko.com/api/v3/';
 
@@ -67,17 +68,16 @@ class Converter extends Component {
             <div className="converter">
                 <h4 className="converter_header">Converter</h4>
                 <form className="converter_form" action="#" method="post">
-                    <div className="converter_form-main">
+                    <div className="converter_form-input">
                         <input
                             className="converter_form-field field"
                             type="number"
                             placeholder={base}
                             onChange={this.getBaseValue}
                         />
-                        <select className="converter_form-select" value={base} disabled>
-                            <option value={base}>{base}</option>
-                        </select>
-                        <select className="converter_form-select" onChange={this.getSelectedCurrency}>
+                        <StyledSelect className="converter_form-select" options={base}>
+                        </StyledSelect>
+                        <StyledSelect className="converter_form-select" onChange={this.getSelectedCurrency}>
                             {
                                 currenciesList.map((item) => {
                                     if (item !== base) {
@@ -85,22 +85,25 @@ class Converter extends Component {
                                     }
                                 })
                             }
-                        </select>
+                        </StyledSelect>
                     </div>
-                    <button
-                        type="button"
-                        onClick={this.calculate}
-                    >
+                    <div className="converter_form-output">
+                        <button
+                            className="btn"
+                            type="button"
+                            onClick={this.calculate}
+                        >
                         <span className="icon">
                             <SiConvertio />
                         </span>
-                        Convert
-                    </button>
-                    <div className="result">
-                        <p className="result_summary">{summary}</p>
-                        <p className="result_details">
-                            1 {base.toUpperCase()} = {exchangeValue} {selectedCurrency.toUpperCase()}
-                        </p>
+                            Convert
+                        </button>
+                        <div className="result">
+                            <p className="result_summary">{summary}</p>
+                            <p className="result_details">
+                                1 {base.toUpperCase()} = {exchangeValue} {selectedCurrency.toUpperCase()}
+                            </p>
+                        </div>
                     </div>
                 </form>
             </div>
