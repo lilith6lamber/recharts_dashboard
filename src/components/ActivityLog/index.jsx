@@ -5,9 +5,30 @@ import { BsThreeDots } from "react-icons/bs";
 export default function ActivityLog() {
     const data = [
         {
+            day: "Wed",
+            date: "1/26 4:25pm",
+            name: "Spotify Annual Plan",
+            statusCode: 1,
+            type: "payment"
+        },
+        {
+            day: "Wed",
+            date: "1/26 1:11am",
+            name: "Airbnb Premium Card",
+            statusCode: 1,
+            type: "payment"
+        },
+        {
+            day: "Mon",
+            date: "6/3 3:07pm",
+            name: "Sent Payment to Client Y",
+            statusCode: 3,
+            type: "payment"
+        },
+        {
             day: "Sun",
             date: "6/9 7:11pm",
-            name: "Adobe Creative Suit Monthly Plan",
+            name: "Sent Payment to Client A",
             statusCode: 2,
             type: "payment"
         },
@@ -21,7 +42,7 @@ export default function ActivityLog() {
         {
             day: "Mon",
             date: "6/3 3:07pm",
-            name: "Sent Payment to Cleint X",
+            name: "Sent Payment to Client X",
             statusCode: 3,
             type: "payment"
         },
@@ -56,7 +77,7 @@ export default function ActivityLog() {
 
     return (
         <div className="activity">
-            <div className="activity_info">
+            <div className="activity_info section-header">
                 <h4 className="activity_info-title">Activity</h4>
                 <a className="link link--circle" href="#">
                         <span className="icon">

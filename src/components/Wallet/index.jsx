@@ -1,4 +1,5 @@
 import {GrUpdate} from "react-icons/gr";
+import {useDrag} from 'react-dnd';
 
 export default function Wallet(props) {
     const {

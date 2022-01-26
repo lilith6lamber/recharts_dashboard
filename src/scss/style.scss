@@ -1,5 +1,5 @@
 @import "base/base";
-@import "base/keyframes";
+@import "global/global";
 
 body {
     font-family: "Roboto", sans-serif;
@@ -12,9 +12,10 @@ body {
 .dashboard {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 20% 80%;
+    //display: grid;
+    //grid-template-columns: 20% 80%;
     height: 100vh;
+    overflow: hidden;
 }
 
 .shape {
@@ -39,38 +40,5 @@ body {
     &--3 {
         left: 60rem;
         top: 20rem;
-    }
-}
-
-.link {
-    &--circle {
-        position: relative;
-        &:after {
-            content: '';
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px solid #fff;
-            border-radius: 100%;
-            transition: opacity .4s ease-in-out;
-            opacity: 0;
-        }
-
-        &:hover, &:focus {
-            &:after {
-                opacity: 1;
-            }
-        }
-    }
-}
-
-::-webkit-scrollbar {
-    width: 0.3rem;
-    background: #14213d;
-    &-thumb {
-        background: #e63946;
     }
 }

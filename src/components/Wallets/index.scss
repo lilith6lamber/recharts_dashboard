@@ -1,30 +1,27 @@
-.wallets {
-    &_info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 900;
-        color: #fff;
-        line-height: 1;
-        margin-bottom: 2rem;
-    }
+@import "../../scss/base/keyframes";
+@import "../../scss/base/variables";
+@import "../../scss/base/mixins";
 
+.wallets {
     &_list {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        grid-template-columns: 1fr;
+        gap: 15px;
 
         &-item {
+            height: 200px;
+
             &_wrapper {
                 display: flex;
-                color: #fff;
+                align-items: center;
                 gap: 1rem;
                 background: rgba(54, 54, 54, .473);
                 width: 100%;
                 border-radius: .5rem;
                 border: 1px solid transparent;
-                padding: 2rem;
+                padding: 30px 20px;
                 position: relative;
+                height: 100%;
                 cursor: pointer;
 
                 span {
@@ -39,6 +36,7 @@
                     opacity: .5;
                     font-size: 18px;
                     transition: opacity .4s ease-in-out;
+
                     path {
                         stroke: #fff;
                     }
@@ -57,17 +55,20 @@
                 }
 
                 .media {
-                    width: 80px;
-                    height: 80px;
+                    width: 40px;
+                    height: 40px;
                     position: relative;
                     top: -5px;
                     transition: .4s ease-in-out;
+                    filter: drop-shadow(0 0 5px $accent);
+                    align-self: flex-start;
+                    margin-top: 15px;
                 }
 
                 .main {
                     &_title {
-                        margin-bottom: 1rem;
-                        font-size: 24px;
+                        margin-bottom: 15px;
+                        font-size: 20px;
                         font-weight: 700;
                     }
 
@@ -80,9 +81,10 @@
                         }
 
                         &-title {
-                            margin-bottom: .5rem;
+                            margin-bottom: 5px;
                             letter-spacing: 1px;
                             font-weight: 500;
+                            font-size: 16px;
                         }
 
                         &-total {
@@ -99,6 +101,39 @@
                     }
                 }
             }
+
+            &.walletNew {
+                .link {
+                    border: 5px dashed $accent;
+                    @include flexCenter;
+                    font-size: 48px;
+                    border-radius: .5rem;
+                    transition: opacity .4s ease-in-out;
+                    height: 200px;
+                    opacity: .5;
+
+                    .icon {
+                        transition: opacity .4s ease-in-out;
+                        opacity: .5;
+                    }
+
+                    &:hover {
+                        opacity: 1;
+
+                        .icon {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 767.98px) {
+    .wallets {
+        &_list {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 }

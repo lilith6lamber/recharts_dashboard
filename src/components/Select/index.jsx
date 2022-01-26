@@ -8,6 +8,7 @@ export const StyledSelect = styled(Select)`
     border: 1px solid #a1a1a1;
     border-radius: 0;
     cursor: pointer;
+    background: transparent;
   }
 
   .Select__control:hover {

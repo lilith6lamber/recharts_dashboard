@@ -4,21 +4,55 @@
     overflow-y: scroll;
     background: rgba(6, 7, 15, .938);
     backdrop-filter: blur(8px);
-    padding: 3rem 2rem;
+    padding: 30px 12px;
 
     &_grid {
-        display: grid;
-        grid-template-columns: 70% 25%;
-        gap: 2rem;
+        //display: grid;
+        //grid-template-columns: 70% 25%;
+        gap: 15px;
         margin-top: 2rem;
 
         &-block {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 30px;
 
             &:first-of-type {
                 width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 767.98px) {
+    .app {
+        padding: 40px 20px;
+
+        &_grid {
+            gap: 15px;
+            margin-top: 2rem;
+
+            &-block {
+                gap: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 991.98px) {
+    .app {
+        //padding: 30px 12px;
+
+
+        &_grid {
+            grid-gap: 30px;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 65% 35%;
+
+            &-block {
+                gap: 50px;
+
             }
         }
     }

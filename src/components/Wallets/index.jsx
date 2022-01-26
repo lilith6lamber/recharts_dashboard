@@ -1,11 +1,11 @@
-import {useDrag} from 'react-dnd'
-import {useLayoutEffect, useState, useEffect} from "react";
+import {useState} from "react";
 import Wallet from "../Wallet";
 
 import './index.scss';
 import {BsThreeDots} from "react-icons/bs";
-import wallet1 from '../../assets/wallet1.png';
-import wallet2 from '../../assets/wallet2.png';
+import {RiAddCircleLine} from "react-icons/ri";
+import wallet1 from '../../assets/walletusd.svg';
+import wallet2 from '../../assets/walleteur.svg';
 
 
 export default function Wallets() {
@@ -47,7 +47,7 @@ export default function Wallets() {
 
     return (
         <div className="wallets">
-            <div className="wallets_info">
+            <div className="wallets_info section-header">
                 <h4 className="wallets_info-title">Wallets</h4>
                 <a className="link link--circle" href="#">
                        <span className="icon">
@@ -57,7 +57,7 @@ export default function Wallets() {
             </div>
             <ul className="wallets_list">
                 {
-                    walletsData.map((item) => {
+                    walletsData.map((item, index) => {
                         const {
                             name,
                             balance,
@@ -80,6 +80,11 @@ export default function Wallets() {
                         )
                     })
                 }
+                <li key="walletNew" className="wallets_list-item walletNew">
+                    <a className="link" href="#">
+                        <RiAddCircleLine className="icon" />
+                    </a>
+                </li>
             </ul>
         </div>
     )

@@ -1,52 +1,71 @@
+@import "../../scss/base/mixins";
+@import "../../scss/base/variables";
+
 .sidebar {
-    background: #212529;
-    color: #fff;
-
-    &_brand {
+    &_panel {
         background: #000;
-        height: 10%;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 15px 12px 12px;
+        height: 50px;
+        @include flexSb;
+        overflow: hidden;
 
-        &-name {
+        &-brand {
+            text-transform: uppercase;
             font-weight: 900;
-            letter-spacing: .3vw;
+            letter-spacing: 2px;
+            flex-grow: 1;
 
             .highlight {
-                color: #c70f61;
+                color: $accent;
+            }
+        }
+
+        &-trigger {
+            font-size: 20px;
+            margin-left: 15px;
+
+            &:hover, &:focus {
+                color: $accent;
             }
         }
     }
 
     &_links {
-        &-item {
-            margin: 2rem auto 0;
-            width: 60%;
+        background: #212529;
+        padding: 60px 40px;
 
-            &:first-of-type {
-                margin-top: 5rem;
-                .icon {
-                    color: #c70f61;
-                }
-            }
+        &-menu {
 
-            .link {
-                text-transform: uppercase;
-                display: flex;
-                gap: .7rem;
-                line-height: 1;
+            &_item {
+                margin-bottom: 25px;
+                font-size: 18px;
 
-                .icon {
-                    transition: .3s ease-in-out;
+                &:last-of-type {
+                    margin-bottom: 0;
                 }
 
-                &:hover,
-                &:focus,
-                &.active {
+                &:first-of-type {
                     .icon {
-                        color: #c70f61;
+                        color: $accent;
+                    }
+                }
+
+                .link {
+                    text-transform: uppercase;
+                    display: flex;
+                    gap: 15px;
+                    line-height: 1;
+
+                    .icon {
+                        transition: .3s ease-in-out;
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &.active {
+                        .icon {
+                            color: $accent;
+                        }
                     }
                 }
             }

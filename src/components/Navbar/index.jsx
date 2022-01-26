@@ -1,13 +1,12 @@
 import './index.scss';
 
 import {VscArrowSwap} from "react-icons/vsc";
-import {IoMdNotificationsOutline} from "react-icons/io";
-import {FaSearch} from "react-icons/fa";
-import {FiMail} from "react-icons/fi";
+import {BsDot} from "react-icons/bs";
+import UserActionElements from "../UserActionElements";
 
 import avatar from '../../assets/avatar.jpg'
 
-export default function Navbar() {
+export default function Navbar({windowWidth}) {
     return (
         <nav className="navbar">
             <div className="navbar_panel">
@@ -16,7 +15,12 @@ export default function Navbar() {
                 </div>
                 <div className="navbar_panel-info">
                     <h4 className="navbar_panel-info_name">Rose Reilly</h4>
-                    <span className="navbar_panel-info_status">Online</span>
+                    <span className="navbar_panel-info_status">
+                        <span className="indicator">
+                            <BsDot/>
+                        </span>
+                        <span className="text">Online</span>
+                    </span>
                 </div>
             </div>
             <a className="navbar_btn" href="#">
@@ -25,26 +29,7 @@ export default function Navbar() {
                 </span>
                 Quick Transactions
             </a>
-            <ul className="navbar_info">
-                <li className="navbar_info-item">
-                    <a className="link" href="#">
-                        <IoMdNotificationsOutline />
-                    </a>
-                </li>
-                <li className="navbar_info-item">
-                    <a className="link" href="#">
-                        <FiMail />
-                    </a>
-                </li>
-                <li className="navbar_info-item">
-                    <form className="navbar_info-item_form" action="#" method="post">
-                        <input className="field" type="search" placeholder="Search"/>
-                        <button className="btn" type="submit">
-                            <FaSearch />
-                        </button>
-                    </form>
-                </li>
-            </ul>
+            {windowWidth > 991.98 ? <UserActionElements /> : null}
         </nav>
     )
 }

@@ -1,48 +1,51 @@
 import './index.scss';
 
 import {BsThreeDots} from "react-icons/bs";
-import amazon from '../../assets/expenseLogo1.png';
-import spotify from '../../assets/expenseLogo2.png';
-import netflix from '../../assets/expenseLogo3.png';
-import adobe from '../../assets/expenseLogo4.png';
-import itunes from '../../assets/expenseLogo5.png';
-import airbnb from '../../assets/expenseLogo6.png';
-import google from '../../assets/expenseLogo7.png';
+import amazon from '../../assets/amazon.svg';
+import spotify from '../../assets/spotify.svg';
+import netflix from '../../assets/netflix.svg';
+import adobe from '../../assets/creative-cloud.svg';
+import itunes from '../../assets/itunes.svg';
+import airbnb from '../../assets/airbnb.svg';
+import google from '../../assets/search.svg';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/scss';
 
 export default function Expenses() {
     const expensesDB = [
         {
-            id: "amazon",
+            id: "Amazon",
             img: amazon,
             moneySpent: "-$5K"
         },
         {
-            id: "spotify",
+            id: "Spotify",
             img: spotify,
             moneySpent: "-$40"
         },
         {
-            id: "netflix",
+            id: "Netflix",
             img: netflix,
             moneySpent: "-$1K"
         },
         {
-            id: "adobe",
+            id: "Adobe",
             img: adobe,
             moneySpent: "-$20K"
         },
         {
-            id: "itunes",
+            id: "iTunes",
             img: itunes,
             moneySpent: "-$64"
         },
         {
-            id: "airbnb",
+            id: "Airbnb",
             img: airbnb,
             moneySpent: "-$150"
         },
         {
-            id: "google",
+            id: "Google",
             img: google,
             moneySpent: "-$70"
         }
@@ -50,7 +53,7 @@ export default function Expenses() {
 
     return (
         <div className="expenses">
-            <div className="expenses_info">
+            <div className="expenses_info section-header">
                 <h4 className="expenses_info-title">Expenses</h4>
                 <a className="link link--circle" href="#">
                         <span className="icon">
@@ -58,12 +61,21 @@ export default function Expenses() {
                     </span>
                 </a>
             </div>
-            <ul className="expenses_list">
+            <Swiper className="expenses_list"
+                    slidesPerView={4}
+                    breakpoints={{
+                        767.98: {
+                            width: 767.98,
+                            slidesPerView: 5,
+                            spaceBetween: 10,
+                        },
+                    }}
+            >
                 {
                     expensesDB.map((item) => {
                         const {id, img, moneySpent} = item;
                         return (
-                            <li key={id} className="expenses_list-item">
+                            <SwiperSlide key={id} className="expenses_list-item">
                                 <a className="expenses_list-item_wrapper link" href="#">
                                     <span className="media">
                                         <img src={img} alt="id"/>
@@ -73,11 +85,11 @@ export default function Expenses() {
                                         <span className="main_total">{moneySpent}</span>
                                     </span>
                                 </a>
-                            </li>
+                            </SwiperSlide>
                         )
                     })
                 }
-            </ul>
+            </Swiper>
         </div>
     )
 }

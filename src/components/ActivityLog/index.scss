@@ -1,14 +1,4 @@
 .activity {
-    color: #fff;
-    margin-top: 3rem;
-
-    &_info {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 2rem;
-    }
-
     &_log {
         margin-top: 1rem;
         position: relative;
@@ -29,11 +19,13 @@
             grid-template-columns: 0.8fr 0.3fr 2fr;
             margin-bottom: 1.5rem;
             font-size: 14px;
+            line-height: 1;
 
             .timestamp {
                 &_weekday {
                     color: #c70f61;
                     font-weight: 500;
+                    font-size: 16px;
                 }
             }
 

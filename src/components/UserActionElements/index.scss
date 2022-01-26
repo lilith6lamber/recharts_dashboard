@@ -1,0 +1,69 @@
+@import "../../scss/base/variables";
+@import "../../scss/base/mixins";
+@import "../../scss/base/keyframes";
+
+.navbar {
+    &_info {
+        display: flex;
+        align-items: center;
+        gap: 1.4vw;
+
+        &-item {
+            font-size: 18px;
+            margin-right: 10px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            &--notification {
+                position: relative;
+                &:after {
+                    content: '2';
+                    position: absolute;
+                    width: 13px;
+                    height: 13px;
+                    background: $accent;
+                    border-radius: 50%;
+                    top: -2px;
+                    right: -5px;
+                    font-size: 10px;
+                    @include flexCenter;
+                }
+            }
+
+            .link {
+                &:hover, &:focus {
+                    color: #c70f61;
+                }
+            }
+
+            &_form {
+                //background: #fff;
+                //color: #111;
+                //display: flex;
+                //align-items: center;
+                //position: relative;
+                //height: 54px;
+                //border-radius: 30px;
+                //padding: 0 2rem;
+                //
+                //.field {
+                //    padding-right: 1rem;
+                //}
+
+                .field {
+                    width: 0;
+                }
+
+                .btn {
+                    //position: absolute;
+                    //right: 2rem;
+                    //top: 50%;
+                    //transform: translateY(-50%);
+                    //color: $accent;
+                }
+            }
+        }
+    }
+}

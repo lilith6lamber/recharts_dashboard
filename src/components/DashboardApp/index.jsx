@@ -7,10 +7,10 @@ import Overview from "../Overview";
 import ActivityLog from "../ActivityLog";
 import Converter from "../Converter";
 
-export default function DashboardApp() {
+export default function DashboardApp({windowWidth}) {
     return (
         <div className="app">
-            <Navbar />
+            <Navbar windowWidth={windowWidth} />
             <div className="app_grid">
                 <div className="app_grid-block">
                     <Wallets />

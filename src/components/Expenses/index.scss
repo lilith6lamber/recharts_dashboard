@@ -1,18 +1,8 @@
+@import "../../scss/base/variables";
+@import "../../scss/base/mixins";
+
 .expenses {
-    &_info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 900;
-        color: #fff;
-        line-height: 1;
-        margin-bottom: 2rem;
-    }
-
     &_list {
-        display: flex;
-        justify-content: space-between;
-
         &-item {
             &_wrapper {
                 display: flex;
@@ -21,7 +11,7 @@
 
                 &:hover, &:focus {
                     .media {
-                        transform: scale(1.1);
+                        border-color: $accent;
                     }
                 }
 
@@ -32,6 +22,13 @@
                     border-radius: 100%;
                     margin-bottom: .5rem;
                     transition: .4s ease-in-out;
+                    background: #fff;
+                    @include flexCenter;
+                    border: 1px solid transparent;
+
+                    img {
+                        max-width: 40px;
+                    }
                 }
 
                 .main {
@@ -40,8 +37,6 @@
                     text-align: center;
 
                     &_title {
-                        color: #fff;
-                        text-transform: capitalize;
                         margin-bottom: .2rem;
                         font-weight: 500;
                     }
