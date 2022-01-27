@@ -12,8 +12,6 @@ body {
 .dashboard {
     position: relative;
     z-index: 1;
-    //display: grid;
-    //grid-template-columns: 20% 80%;
     height: 100vh;
     overflow: hidden;
 }
@@ -40,5 +38,24 @@ body {
     &--3 {
         left: 60rem;
         top: 20rem;
+    }
+}
+
+@media screen and (min-width: 991.98px){
+    .dashboard {
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+}
+
+@media screen and (min-width: 1199.98px){
+    .dashboard {
+        grid-template-columns: 25% 75%;
+    }
+}
+
+@media screen and (min-width: 1399.98px){
+    .dashboard {
+        grid-template-columns: 20% 80%;
     }
 }

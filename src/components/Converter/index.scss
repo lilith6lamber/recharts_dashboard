@@ -1,3 +1,6 @@
+@import "../../scss/base/mixins";
+@import "../../scss/base/variables";
+
 .converter {
     &_form {
         background: rgba(54, 54, 54, 0.473);
@@ -10,16 +13,25 @@
             grid-gap: 10px;
 
             .field {
-                border: 2px solid gainsboro;
+                border: 2px solid rgba(255,255,255, .5);
                 padding: 0.5rem;
                 grid-area: 1 / 1 / 2 / 3;
                 border-radius: 5px;
                 height: 40px;
+                transition: .3s ease-in-out;
 
                 &::placeholder {
                     text-transform: uppercase;
                 }
+
+                &:focus {
+                    border-color: #fff;
+                }
             }
+        }
+
+        &-select {
+            text-transform: uppercase;
         }
 
         &-output {
@@ -28,13 +40,11 @@
             margin-top: 20px;
 
             .btn {
-                background: #c70f61;
+                background: $accent;
                 padding: .5rem 1.5rem;
                 border-radius: 2rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: fit-content;
+                @include flexCenter;
+                width: 100%;
                 margin-bottom: 10px;
 
                 .icon {
@@ -45,6 +55,21 @@
 
                     .rotate {
                         animation: rotate-center 3s ease-in-out infinite both;
+                    }
+                }
+            }
+
+            .result {
+                &_details {
+                    margin-top: 5px;
+                    font-size: 12px;
+                    color: #ccc;
+                    opacity: .6;
+                }
+                &_summary {
+                    font-size: 18px;
+                    &.hidden {
+                        visibility: hidden;
                     }
                 }
             }

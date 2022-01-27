@@ -9,6 +9,12 @@
         @include flexSb;
         overflow: hidden;
 
+        &-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
         &-brand {
             text-transform: uppercase;
             font-weight: 900;
@@ -69,6 +75,93 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 991.98px){
+    .sidebar {
+        &_panel {
+            padding: 15px 40px 12px;
+
+            &-brand {
+                text-transform: uppercase;
+                font-weight: 900;
+                letter-spacing: 2px;
+                flex-grow: 1;
+
+                .highlight {
+                    color: $accent;
+                }
+            }
+
+            &-trigger {
+                font-size: 20px;
+                margin-left: 15px;
+
+                &:hover, &:focus {
+                    color: $accent;
+                }
+            }
+        }
+
+        &_links {
+            background: #212529;
+            padding: 60px 40px;
+            width: 30%;
+
+            &-menu {
+
+                &_item {
+                    margin-bottom: 25px;
+                    font-size: 18px;
+
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+
+                    &:first-of-type {
+                        .icon {
+                            color: $accent;
+                        }
+                    }
+
+                    .link {
+                        text-transform: uppercase;
+                        display: flex;
+                        gap: 15px;
+                        line-height: 1;
+
+                        .icon {
+                            transition: .3s ease-in-out;
+                        }
+
+                        &:hover,
+                        &:focus,
+                        &.active {
+                            .icon {
+                                color: $accent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1199.98px){
+    .sidebar {
+        &_links {
+            width: 25%;
+        }
+    }
+}
+
+@media screen and (min-width: 1399.98px){
+    .sidebar {
+        &_links {
+            width: 20%;
         }
     }
 }

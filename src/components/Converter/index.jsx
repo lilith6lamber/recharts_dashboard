@@ -118,7 +118,7 @@ class Converter extends Component {
                                 Convert
                             </button>
                             <div className="result">
-                                <p className="result_summary">{summary}</p>
+                                <p className={summary !== 0 ? "result_summary" : "result_summary hidden"}>{summary}</p>
                                 <p className="result_details">
                                     1 {base.toUpperCase()} = {exchangeValue} {selectedCurrency.toUpperCase()}
                                 </p>

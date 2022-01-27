@@ -5,19 +5,25 @@ export const StyledSelect = styled(Select)`
   .Select__control {
     height: 40px;
     width: 100%;
-    border: 1px solid #a1a1a1;
-    border-radius: 0;
+    border: 2px solid rgba(255,255,255, .5);
+    border-radius: 5px;
     cursor: pointer;
     background: transparent;
+    transition: .3s ease-in-out;
   }
 
   .Select__control:hover {
-    border-color: #a1a1a1;
+    border-color: #fff;
   }
 
   .Select__control--is-focused {
-    box-shadow: 0 0 0 1px black;
+    box-shadow: none;
     outline: none;
+    border-color: #fff;
+  }
+
+  .Select__indicator {
+    color: #c70f61;
   }
 
   .Select__indicator-separator {

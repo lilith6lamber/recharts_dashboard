@@ -11,6 +11,7 @@
         //grid-template-columns: 70% 25%;
         gap: 15px;
         margin-top: 2rem;
+        overflow: hidden;
 
         &-block {
             display: flex;
@@ -41,19 +42,24 @@
 
 @media screen and (min-width: 991.98px) {
     .app {
-        //padding: 30px 12px;
-
-
         &_grid {
             grid-gap: 30px;
             margin-top: 2rem;
-            display: grid;
-            grid-template-columns: 65% 35%;
 
             &-block {
                 gap: 50px;
 
             }
         }
+    }
+}
+
+@media screen and (min-width: 1399.98px){
+    .app {
+       &_grid {
+           display: grid;
+           grid-template-columns: 65% 30%;
+           justify-content: space-between;
+       }
     }
 }
