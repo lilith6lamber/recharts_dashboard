@@ -7,19 +7,18 @@
     padding: 30px 12px;
 
     &_grid {
-        //display: grid;
-        //grid-template-columns: 70% 25%;
         gap: 15px;
         margin-top: 2rem;
-        overflow: hidden;
 
         &-block {
             display: flex;
             flex-direction: column;
             gap: 30px;
+            overflow: hidden;
 
             &:first-of-type {
                 width: 100%;
+                overflow: visible;
             }
         }
     }
@@ -54,12 +53,19 @@
     }
 }
 
-@media screen and (min-width: 1399.98px){
+@media screen and (min-width: 1399.98px) {
     .app {
-       &_grid {
-           display: grid;
-           grid-template-columns: 65% 30%;
-           justify-content: space-between;
-       }
+        display: grid;
+        grid-template-columns: 65% 30%;
+        grid-template-rows: 0.2fr 1.8fr;
+        grid-gap: 30px 50px;
+
+        &_grid {
+            &-block {
+                &:nth-of-type(2) {
+                    grid-area: 1 / 2 / 3 / 3;
+                }
+            }
+        }
     }
 }

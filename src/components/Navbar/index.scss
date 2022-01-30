@@ -62,7 +62,6 @@
         gap: 15px;
         border: 2px solid #fff;
         font-weight: 900;
-        margin-bottom: 10px;
 
         .icon {
             svg {
@@ -74,5 +73,30 @@
             background: $accent;
             color: whitesmoke;
         }
+    }
+}
+
+@media screen and (min-width: 575.98px) {
+    .navbar {
+        flex-direction: row;
+        @include flexSb;
+
+        &_panel {
+            margin-bottom: 0;
+
+            &-avatar {
+                margin-right: 15px;
+            }
+        }
+
+        &_btn {
+            max-width: 270px;
+        }
+    }
+}
+
+@media screen and (min-width: 1399.98px) {
+    .navbar {
+        grid-area: 1 / 1 / 2 / 2;
     }
 }

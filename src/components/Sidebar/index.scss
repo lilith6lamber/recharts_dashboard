@@ -2,6 +2,8 @@
 @import "../../scss/base/variables";
 
 .sidebar {
+    background: #212529;
+
     &_panel {
         background: #000;
         padding: 15px 12px 12px;
@@ -79,8 +81,11 @@
     }
 }
 
-@media screen and (min-width: 991.98px){
+@media screen and (min-width: 991.98px) {
     .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         &_panel {
             padding: 15px 40px 12px;
 
@@ -106,9 +111,8 @@
         }
 
         &_links {
-            background: #212529;
+            flex-grow: 1;
             padding: 60px 40px;
-            width: 30%;
 
             &-menu {
 
@@ -146,22 +150,6 @@
                     }
                 }
             }
-        }
-    }
-}
-
-@media screen and (min-width: 1199.98px){
-    .sidebar {
-        &_links {
-            width: 25%;
-        }
-    }
-}
-
-@media screen and (min-width: 1399.98px){
-    .sidebar {
-        &_links {
-            width: 20%;
         }
     }
 }

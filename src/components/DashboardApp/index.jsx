@@ -11,17 +11,15 @@ export default function DashboardApp({windowWidth}) {
     return (
         <div className="app">
             <Navbar windowWidth={windowWidth} />
-            <div className="app_grid">
-                <div className="app_grid-block">
-                    <Wallets />
-                    <Converter />
-                    <Expenses />
-                    <Transactions />
-                </div>
-                <div className="app_grid-block">
-                    <Overview />
-                    <ActivityLog />
-                </div>
+            <div className="app_grid-block">
+                <Wallets />
+                <Converter />
+                <Expenses />
+                <Transactions />
+            </div>
+            <div className="app_grid-block">
+                <Overview />
+                <ActivityLog />
             </div>
         </div>
     )

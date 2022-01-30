@@ -6,16 +6,12 @@ import {AiFillSetting, AiFillAppstore} from "react-icons/ai";
 import {BsCashStack} from "react-icons/bs";
 import {MdAccountCircle} from "react-icons/md";
 import {CgMenuGridO} from "react-icons/cg";
-import {Offcanvas, OffcanvasBody} from "react-bootstrap";
-import {useState} from "react";
+
 import UserActionElements from "../UserActionElements";
+import WeatherWidget from "../WeatherWidget";
 import logo from '../../assets/logo.svg';
 
 export default function Sidebar({windowWidth}) {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const toggleShow = () => setShow((s) => !s);
-
     const links = [
         {
             title: "Dashboard",
@@ -51,6 +47,10 @@ export default function Sidebar({windowWidth}) {
         },
     ]
 
+    function toggleShow() {
+        document.querySelector('.sidebar_links').classList.toggle('show');
+    }
+
     return (
         <div className="sidebar">
             <div className="sidebar_panel">
@@ -65,13 +65,10 @@ export default function Sidebar({windowWidth}) {
                     null
                 }
             </div>
-            <Offcanvas
-                className="sidebar_links"
-                placement="start"
-                show={windowWidth < 991.98 ? show : true}
-                onHide={handleClose}
+            <div
+                className={windowWidth < 991.98 ? "sidebar_links offcanvas offcanvas-start" : "sidebar_links"}
             >
-                <OffcanvasBody as="ul" className="sidebar_links-menu">
+                <ul className="sidebar_links-menu">
                     {
                         links.map((link) => {
                             const {title} = link;
@@ -86,8 +83,11 @@ export default function Sidebar({windowWidth}) {
                             </li>
                         })
                     }
-                </OffcanvasBody>
-            </Offcanvas>
+                </ul>
+            </div>
+            {
+                windowWidth < 991.98 ? null : <WeatherWidget/>
+            }
         </div>
     )
 }

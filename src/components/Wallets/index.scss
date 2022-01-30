@@ -3,6 +3,25 @@
 @import "../../scss/base/mixins";
 
 .wallets {
+    &_info {
+        &-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .icon {
+                position: relative;
+                top: 1px;
+                cursor: pointer;
+                opacity: .7;
+                transition: opacity .4s ease-in-out;
+                &:hover, &.active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
     &_list {
         display: grid;
         grid-template-columns: 1fr;
@@ -23,6 +42,7 @@
                 position: relative;
                 height: 100%;
                 cursor: pointer;
+                transition: .3s ease-in-out;
 
                 span {
                     display: block;
@@ -134,6 +154,22 @@
     .wallets {
         &_list {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 1199.98px) {
+    .wallets {
+        &_list {
+            grid-gap: 30px;
+
+            &-item {
+                height: 250px;
+
+                &.walletNew .link {
+                    height: 250px;
+                }
+            }
         }
     }
 }

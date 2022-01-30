@@ -101,3 +101,13 @@
         }
     }
 }
+
+@media screen and (min-width: 575.98px) {
+    .overview {
+        &_expand {
+            &-btn {
+                max-width: 270px;
+            }
+        }
+    }
+}
