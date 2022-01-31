@@ -1,4 +1,4 @@
-import {GrUpdate} from "react-icons/gr";
+import {FiRefreshCcw} from "react-icons/fi";
 import {useDrag} from 'react-dnd';
 import {useState, useEffect} from "react";
 
@@ -33,7 +33,7 @@ export default function Wallet(props){
         <li key={name} className="wallets_list-item">
             <div className="wallets_list-item_wrapper link">
                 <a className="updateTrigger" href="#">
-                    <GrUpdate
+                    <FiRefreshCcw
                         onClick={updateBalance}
                         data-target={id}
                     />
