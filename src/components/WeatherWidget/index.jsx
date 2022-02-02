@@ -3,8 +3,10 @@ import {Component} from "react";
 import {BsWind} from 'react-icons/bs';
 import {FiRefreshCcw} from "react-icons/fi";
 import Preloader from "../Preloader";
+import {addZero} from "../../helpers/helpers";
 import temp from "../../assets/temp.svg"
 import codes from '../../database/codes.json';
+import {f_unit, weekdays} from "../../helpers/helpers";
 
 // const API_KEY = process.env.OW_API_KEY;
 const API_KEY = "";
@@ -14,15 +16,6 @@ const defaultPosition = {
     lon: -73.98312126886398
 }
 
-const f_unit = [
-    "bs",
-    "us",
-    "bz",
-    "ky",
-    "pw",
-    "lr"
-];
-
 class WeatherWidget extends Component {
     state = {
         isLoading: false,
@@ -30,7 +23,8 @@ class WeatherWidget extends Component {
         name: "United States",
         city: "NY",
         weather: {},
-        units: "standard",
+        units: "metric",
+        currentDate: "",
         ...defaultPosition
     }
 
@@ -44,6 +38,15 @@ class WeatherWidget extends Component {
                 tempFeelsLike: data.main.feels_like,
             }
         })
+    }
+
+    setCurrentDate = () => {
+        let weekdayNum = new Date().getDay();
+        let weekday = weekdays[weekdayNum];
+        let date = addZero(new Date().getDate());
+        let month = addZero(new Date().getMonth() + 1);
+        let year = new Date().getFullYear();
+        this.setState({currentDate: `${weekday}, ${date}.${month}.${year}`})
     }
 
     getCurrentWeather = () => {
@@ -66,7 +69,7 @@ class WeatherWidget extends Component {
 
         if (localStorage.getItem('userPosition')) {
             let coords = JSON.parse(localStorage.getItem('userPosition'));
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=${this.state.units}&appid=${API_KEY}`)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({code: data.sys.country, city: data.name}, () => {
@@ -105,10 +108,11 @@ class WeatherWidget extends Component {
 
     componentDidMount() {
         this.getCurrentWeather();
+        this.setCurrentDate();
     }
 
     render() {
-        const {name, code, city, weather, isLoading} = this.state;
+        const {name, code, city, weather, isLoading, units, currentDate} = this.state;
         return (
             <div className="weather">
                 <h4 className="weather_header section-header">Weather
@@ -127,6 +131,9 @@ class WeatherWidget extends Component {
                             />
                             <h3 className="weather_widget-country_name">{name}, {city}</h3>
                         </div>
+                        <div className="weather_widget-date">
+                            <span className="weather_widget-date">{currentDate}</span>
+                        </div>
                         <div className="weather_widget-main">
                             <div className="general block">
                                 <img className="general_icon"
@@ -138,14 +145,14 @@ class WeatherWidget extends Component {
                             <div className="wind block">
                             <span className="wind_icon">
                                 <BsWind/>
-                                {weather.wind} m/s
+                                {Math.round(weather.wind) > 0 ? `${Math.round(weather.wind)} m/s` : 'Calm'}
                             </span>
                             </div>
                             <div className="temp block">
                             <span className="temp_icon">
                                 <img src={temp} alt="icon"/>
                             </span>
-                                {Math.round(weather.temp)} °C
+                                {Math.round(weather.temp)} {units === "metric" ? "°C" : "°F"}
                             </div>
                         </div>
                     </div>

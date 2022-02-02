@@ -12,7 +12,7 @@ class Converter extends Component {
         currenciesList: [],
         selectedCurrency: '',
         baseValue: 0,
-        exchangeValue: 0,
+        exchangeValue: 1,
         summary: 0
     }
 
@@ -20,7 +20,12 @@ class Converter extends Component {
         fetch(`${apibase}simple/supported_vs_currencies`)
             .then(response => response.json())
             .then(data => {
-                this.setState({currenciesList: data, selectedCurrency: data[1]})
+                let dataObjArray = [];
+                for (let i = 0; i < data.length; i++) {
+                    let value = data[i];
+                    dataObjArray.push({value: value, label: value})
+                }
+                this.setState({currenciesList: dataObjArray, selectedCurrency: data[1]})
             })
             .catch(err => {
                 console.error(err)
@@ -28,7 +33,7 @@ class Converter extends Component {
     }
 
     getSelectedCurrency = (event) => {
-        this.setState({selectedCurrency: event.target.value}, () => {
+        this.setState({selectedCurrency: event.value}, () => {
             this.getExchangeValue();
         })
     }
@@ -95,7 +100,7 @@ class Converter extends Component {
                                 className="converter_form-select"
                                 placeholder={selectedCurrency}
                                 onChange={this.getSelectedCurrency}
-                                options={this.getExchangeValue}
+                                options={currenciesList}
                             >
                                 {/*{*/}
                                 {/*    currenciesList.map((item) => {*/}
