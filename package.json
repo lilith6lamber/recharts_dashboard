@@ -22,7 +22,7 @@
     "react-select": "^5.2.2",
     "react-transition-group": "^4.4.2",
     "recharts": "^2.1.8",
-    "swiper": "^7.4.1",
+    "swiper": "^8.0.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

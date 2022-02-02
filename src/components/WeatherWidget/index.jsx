@@ -14,6 +14,15 @@ const defaultPosition = {
     lon: -73.98312126886398
 }
 
+const f_unit = [
+    "bs",
+    "us",
+    "bz",
+    "ky",
+    "pw",
+    "lr"
+];
+
 class WeatherWidget extends Component {
     state = {
         isLoading: false,
@@ -21,7 +30,7 @@ class WeatherWidget extends Component {
         name: "United States",
         city: "NY",
         weather: {},
-        //metric
+        units: "standard",
         ...defaultPosition
     }
 
@@ -57,14 +66,20 @@ class WeatherWidget extends Component {
 
         if (localStorage.getItem('userPosition')) {
             let coords = JSON.parse(localStorage.getItem('userPosition'));
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&units=metric&appid=${API_KEY}`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}`)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({code: data.sys.country, city: data.name}, () => {
                         for (let key in codes) {
                             if (this.state.code.toLowerCase() === key) {
                                 this.setState({name: codes[key]})
-                                break
+                                break;
+                            }
+                        }
+                        for (let i = 0; i < f_unit.length; i++) {
+                            if(this.state.code.toLowerCase() !== f_unit[i]) {
+                                this.setState({units: "metric"})
+                                break;
                             }
                         }
                     })

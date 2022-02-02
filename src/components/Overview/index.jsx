@@ -1,35 +1,35 @@
 import './index.scss';
 
-import {AreaChart, Area, Tooltip, ResponsiveContainer} from "recharts";
+import Chart from "../Chart";
 
 const data = [
     {
-        data2: 1500,
-        data1: 2400,
+        "Data 2": 1500,
+        "Data 1": 2400,
     },
     {
-        data2: 15500,
-        data1: 7421,
+        "Data 2": 15500,
+        "Data 1": 7421,
     },
     {
-        data2: 5000,
-        data1: 12800,
+        "Data 2": 5000,
+        "Data 1": 12800,
     },
     {
-        data2: 8780,
-        data1: 3908,
+        "Data 2": 8780,
+        "Data 1": 3908,
     },
     {
-        data2: 9890,
-        data1: 4800,
+        "Data 2": 9890,
+        "Data 1": 4800,
     },
     {
-        data2: 5769,
-        data1: 3800,
+        "Data 2": 5769,
+        "Data 1": 3800,
     },
     {
-        data2: 3490,
-        data1: 4300,
+        "Data 2": 3490,
+        "Data 1": 4300,
     },
 ];
 
@@ -64,40 +64,7 @@ export default function Overview() {
                 </div>
             </div>
             <div className="overview_visualizer">
-                <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart
-                        width={500}
-                        height={400}
-                        data={data}
-                        margin={{top: 10}}
-                    >
-                        <defs>
-                            <linearGradient
-                                id="colorview"
-                                x1="0"
-                                y1="0"
-                                x2="0"
-                                y2="1"
-                            >
-                                <stop offset="30%" stopColor="#ff4d6d" stopOpacity={0.4} />
-                                <stop offset="85%" stopColor="#ff4d6d11" stopOpacity={0.2} />
-                            </linearGradient>
-                        </defs>
-                        <Tooltip />
-                        <Area
-                            dataKey="data2"
-                            type="monotone"
-                            stroke="#ee3b3b"
-                            fill="url(#colorview)"
-                        />
-                        <Area
-                            dataKey="data1"
-                            type="monotone"
-                            stroke="#ee3b3b"
-                            fill="url(#colorview)"
-                        />
-                    </AreaChart>
-                </ResponsiveContainer>
+                <Chart data={data} />
             </div>
             <div className="overview_insights">
                 <div className="overview_insights-item">

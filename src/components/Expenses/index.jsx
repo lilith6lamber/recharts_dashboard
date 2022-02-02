@@ -10,6 +10,7 @@ import airbnb from '../../assets/airbnb.svg';
 import google from '../../assets/search.svg';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Autoplay} from "swiper";
 import 'swiper/scss';
 
 export default function Expenses() {
@@ -62,13 +63,18 @@ export default function Expenses() {
                 </a>
             </div>
             <Swiper className="expenses_list"
+                    modules={[Autoplay]}
                     slidesPerView={4}
+                    loop={true}
+                    autoplay={true}
+                    speed={1600}
                     breakpoints={{
                         767.98: {
-                            width: 767.98,
                             slidesPerView: 5,
-                            spaceBetween: 10,
                         },
+                        1199.98: {
+                            slidesPerView: 6,
+                        }
                     }}
             >
                 {

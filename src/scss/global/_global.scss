@@ -43,6 +43,18 @@ body {
     }
 }
 
+.tooltip_wrapper {
+    background-color: rgba(0, 0, 0, .7) !important;
+    padding: 20px !important;
+    border: none !important;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.75);
+
+    &-label {
+        display: none;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 5px;
     background: #14213d;
