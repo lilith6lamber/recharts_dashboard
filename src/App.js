@@ -6,7 +6,10 @@ import DashboardApp from "./components/DashboardApp";
 import Lottie from "lottie-react";
 import bubbles from './assets/bubbles.json';
 
+import { useTranslation, Trans } from 'react-i18next';
+
 function App() {
+    const { t } = useTranslation();
     const windowWidth = useWindowWidth();
 
     return (
@@ -23,6 +26,11 @@ function App() {
                 <Sidebar windowWidth={windowWidth}/>
                 <DashboardApp windowWidth={windowWidth} />
             </div>
+            <p>
+                <Trans i18nKey="description.part1">
+                    Edit <code>src/App.js</code> and save to reload.
+                </Trans>
+            </p>
         </>
     )
 }

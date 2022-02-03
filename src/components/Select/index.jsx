@@ -33,4 +33,8 @@ export const StyledSelect = styled(Select)`
   .Select__menu {
     color: #3c3d3e;
   }
+  
+  .Select__input-container, .Select__input-container::placeholder {
+    color: #fff;
+  }
 `;

@@ -34,12 +34,26 @@
         }
 
         &-main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 20px;
+
             .block {
                 display: flex;
                 align-items: center;
 
                 .icon {
-                    max-width: 32px;
+                    max-height: 16px;
+                    max-width: 16px;
+                    margin-right: 5px;
+                }
+
+                &.general {
+                    width: 100%;
+
+                    .icon {
+                        max-width: 32px;
+                    }
                 }
             }
         }

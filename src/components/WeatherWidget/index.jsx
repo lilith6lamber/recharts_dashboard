@@ -127,6 +127,7 @@ class WeatherWidget extends Component {
 
     render() {
         const {name, code, city, weather, isLoading, units, currentDate, currentTime} = this.state;
+        const weatherIcon = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;
         return (
             <div className="weather">
                 <h4 className="weather_header section-header">Weather
@@ -152,16 +153,18 @@ class WeatherWidget extends Component {
                         <div className="weather_widget-main">
                             <div className="general block">
                                 <img className="general_icon icon"
-                                     src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+                                     src={weatherIcon}
                                      alt="icon"
                                 />
                                 <h4 className="general_title">{weather.main}</h4>
                             </div>
                             <div className="wind block">
-                            <span className="wind_icon icon">
-                                <BsWind/>
-                                {Math.round(weather.wind) > 0 ? `${Math.round(weather.wind)} m/s` : 'Calm'}
-                            </span>
+                                <span className="wind_icon icon">
+                                    <BsWind/>
+                                </span>
+                                <span>
+                                    {Math.round(weather.wind) > 0 ? `${Math.round(weather.wind)}  m/s` : 'Calm'}
+                                </span>
                             </div>
                             <div className="temp block">
                             <span className="temp_icon icon">
