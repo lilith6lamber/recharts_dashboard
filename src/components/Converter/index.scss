@@ -11,6 +11,8 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 10px;
+            position: relative;
+            z-index: 1000;
 
             .field {
                 border: 2px solid rgba(255, 255, 255, .5);

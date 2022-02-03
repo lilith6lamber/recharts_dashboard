@@ -3,6 +3,8 @@
 
 .sidebar {
     background: #212529;
+    height: 100vh;
+    overflow-y: scroll;
 
     &_panel {
         background: #000;
@@ -87,7 +89,7 @@
         flex-direction: column;
         justify-content: space-between;
         &_panel {
-            padding: 15px 40px 12px;
+            padding: 30px 40px;
 
             &-brand {
                 text-transform: uppercase;

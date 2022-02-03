@@ -25,12 +25,20 @@
             }
         }
 
+        &-date {
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px 0;
+            margin-bottom: 10px;
+        }
+
         &-main {
-            .general {
+            .block {
                 display: flex;
                 align-items: center;
 
-                &_icon {
+                .icon {
                     max-width: 32px;
                 }
             }

@@ -64,7 +64,7 @@ export default function Expenses() {
             </div>
             <Swiper className="expenses_list"
                     modules={[Autoplay]}
-                    slidesPerView={4}
+                    slidesPerView={3}
                     loop={true}
                     autoplay={true}
                     speed={1600}

@@ -25,6 +25,7 @@ class WeatherWidget extends Component {
         weather: {},
         units: "metric",
         currentDate: "",
+        currentTime: "",
         ...defaultPosition
     }
 
@@ -46,7 +47,15 @@ class WeatherWidget extends Component {
         let date = addZero(new Date().getDate());
         let month = addZero(new Date().getMonth() + 1);
         let year = new Date().getFullYear();
-        this.setState({currentDate: `${weekday}, ${date}.${month}.${year}`})
+        this.setState({currentDate: `${weekday}, ${month}/${date}/${year}`})
+    }
+
+    setCurrentTime = () => {
+        const today = new Date(),
+            h = addZero(today.getHours()),
+            m = addZero(today.getMinutes()),
+            s = addZero(today.getSeconds());
+        this.setState({currentTime: `${h}:${m}:${s}`})
     }
 
     getCurrentWeather = () => {
@@ -109,10 +118,15 @@ class WeatherWidget extends Component {
     componentDidMount() {
         this.getCurrentWeather();
         this.setCurrentDate();
+        this.setCurrentTime();
+    }
+
+    componentDidUpdate() {
+        setTimeout(this.setCurrentTime, 500);
     }
 
     render() {
-        const {name, code, city, weather, isLoading, units, currentDate} = this.state;
+        const {name, code, city, weather, isLoading, units, currentDate, currentTime} = this.state;
         return (
             <div className="weather">
                 <h4 className="weather_header section-header">Weather
@@ -132,24 +146,25 @@ class WeatherWidget extends Component {
                             <h3 className="weather_widget-country_name">{name}, {city}</h3>
                         </div>
                         <div className="weather_widget-date">
-                            <span className="weather_widget-date">{currentDate}</span>
+                            <span className="date">{currentDate}</span>
+                            <span className="time">{currentTime}</span>
                         </div>
                         <div className="weather_widget-main">
                             <div className="general block">
-                                <img className="general_icon"
+                                <img className="general_icon icon"
                                      src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
                                      alt="icon"
                                 />
                                 <h4 className="general_title">{weather.main}</h4>
                             </div>
                             <div className="wind block">
-                            <span className="wind_icon">
+                            <span className="wind_icon icon">
                                 <BsWind/>
                                 {Math.round(weather.wind) > 0 ? `${Math.round(weather.wind)} m/s` : 'Calm'}
                             </span>
                             </div>
                             <div className="temp block">
-                            <span className="temp_icon">
+                            <span className="temp_icon icon">
                                 <img src={temp} alt="icon"/>
                             </span>
                                 {Math.round(weather.temp)} {units === "metric" ? "°C" : "°F"}

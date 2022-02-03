@@ -102,13 +102,6 @@ class Converter extends Component {
                                 onChange={this.getSelectedCurrency}
                                 options={currenciesList}
                             >
-                                {/*{*/}
-                                {/*    currenciesList.map((item) => {*/}
-                                {/*        if (item !== base) {*/}
-                                {/*            return <option key={item} value={item}>{item}</option>*/}
-                                {/*        }*/}
-                                {/*    })*/}
-                                {/*}*/}
                             </StyledSelect>
                         </div>
                         <div className="converter_form-output">
