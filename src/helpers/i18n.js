@@ -15,16 +15,44 @@ i18n
             en: {
                 translation: {
                     translation: {
-                        description: {
-                            part1: 'Edit <1>src/App.js</1> and save to reload.',
+                        nav: {
+                            dashboard: 'Dashboard',
+                            buy: 'Buy / Sell',
+                            news: 'News',
+                            send: 'Send money',
+                            deposit: 'Deposit',
+                            transactions: 'Transactions',
+                            account: 'Account',
+                            settings: 'Settings'
                         }
                     }
                 }
             },
             ru: {
                 translation: {
-                    description: {
-                        part1: 'Ändere <1>src/App.js</1> und speichere um neu zu laden.',
+                    nav: {
+                        dashboard: 'Панель',
+                        buy: 'Купить / Продать',
+                        news: 'Новости',
+                        send: 'Отправить деньги',
+                        deposit: 'Депозит',
+                        transactions: 'Переводы',
+                        account: 'Аккаунт',
+                        settings: 'Настройки'
+                    }
+                }
+            },
+            ua: {
+                translation: {
+                    nav: {
+                        dashboard: 'Панель',
+                        buy: 'Купити / Продати',
+                        news: 'Новини',
+                        send: 'Відправити гроші',
+                        deposit: 'Депозит',
+                        transactions: 'Перекази',
+                        account: 'Аккаунт',
+                        settings: 'Налаштування'
                     }
                 }
             }

@@ -10,39 +10,41 @@ import {CgMenuGridO} from "react-icons/cg";
 import UserActionElements from "../UserActionElements";
 import WeatherWidget from "../WeatherWidget";
 import logo from '../../assets/logo.svg';
+import { useTranslation } from 'react-i18next';
 
 export default function Sidebar({windowWidth}) {
+    const { t } = useTranslation();
     const links = [
         {
-            title: "Dashboard",
+            title: t('nav.dashboard'),
             icon: SiGoogleanalytics,
         },
         {
-            title: "Buy / Cell",
+            title:  t('nav.buy'),
             icon: AiFillAppstore,
         },
         {
-            title: "News",
+            title:  t('nav.news'),
             icon: BiNews,
         },
         {
-            title: "Send Money",
+            title:  t('nav.send'),
             icon: BiRocket,
         },
         {
-            title: "Deposit",
+            title:  t('nav.deposit'),
             icon: BsCashStack,
         },
         {
-            title: "Transactions",
+            title:  t('nav.transactions'),
             icon: FaWallet,
         },
         {
-            title: "Account",
+            title:  t('nav.account'),
             icon: MdAccountCircle,
         },
         {
-            title: "Settings",
+            title:  t('nav.settings'),
             icon: AiFillSetting,
         },
     ]

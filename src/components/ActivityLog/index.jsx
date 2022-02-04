@@ -1,6 +1,7 @@
 import './index.scss';
-
 import { BsThreeDots } from "react-icons/bs";
+import {shaveText} from "../../modules/shave";
+import {useEffect} from "react";
 
 export default function ActivityLog() {
     const data = [
@@ -75,6 +76,8 @@ export default function ActivityLog() {
         }
     }
 
+    // shaveText(16);
+
     return (
         <div className="activity">
             <div className="activity_info section-header">
@@ -95,9 +98,8 @@ export default function ActivityLog() {
                                     <h3 className="timestamp_weekday">{day}</h3>
                                     <span className="timestamp_date">{date}</span>
                                 </div>
-                                <div className="dot"></div>
                                 <div className="details">
-                                    <h5 className="details_title">{name}</h5>
+                                    <h5 className="details_title shave">{name}</h5>
                                     <span className={
                                         setStatus(item) ? "details_status " + setStatus(item).toLowerCase() : "details_status"}
                                     >

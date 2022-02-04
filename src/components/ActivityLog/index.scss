@@ -1,27 +1,40 @@
 .activity {
+    margin-bottom: 40px;
+
     &_log {
         margin-top: 1rem;
         position: relative;
 
-        &:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 30%;
-            height: 95%;
-            z-index: -1;
-            transform: translateY(-50%);
-            border-left: 3px dotted #fff;
-        }
-
         &-item {
-            display: grid;
-            grid-template-columns: 0.8fr 0.3fr 2fr;
-            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 30px;
             font-size: 14px;
             line-height: 1;
 
+            &:last-of-type {
+                .timestamp {
+                    border-color: transparent;
+                    padding-bottom: 0;
+                }
+            }
+
             .timestamp {
+                width: 100px;
+                border-right: 3px dotted #fff;
+                position: relative;
+                padding-bottom: 30px;
+
+                &:after {
+                    content: '';
+                    height: 10px;
+                    width: 10px;
+                    background: #f94144;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: -6.5px;
+                    top: 0;
+                }
+
                 &_weekday {
                     color: #c70f61;
                     font-weight: 500;
@@ -29,19 +42,15 @@
                 }
             }
 
-            .dot {
-                height: 0.6rem;
-                width: 0.6rem;
-                background: #f94144;
-                border-radius: 1rem;
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
             .details {
+                &_title {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                }
+
                 &_status {
                     color: gainsboro;
+                    font-size: 12px;
 
                     &.sent {
                         color: darkgoldenrod;
@@ -63,5 +72,3 @@
         }
     }
 }
-
-//TODO: dots positioning fix
